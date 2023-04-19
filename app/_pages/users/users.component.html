@@ -1,0 +1,78 @@
+<div class="container">
+    <mat-card class="container_card">
+        <mat-card-header class="container_card_title">
+            <mat-card-title>USER MANAGEMENT</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="container_card_body">
+            <mat-accordion class="mat-accordion-item">
+                <mat-expansion-panel disabled>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            First Name
+                        </mat-panel-title>
+                        <mat-panel-title>
+                            Last Name
+                        </mat-panel-title>
+                        <mat-panel-title>
+                            Email
+                        </mat-panel-title>
+                        <mat-panel-title>
+                            Postal Code
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+                <mat-expansion-panel *ngFor="let item of userInfo; let i = index">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{item.firstName}}
+                        </mat-panel-title>
+                        <mat-panel-title>
+                            {{item.lastName}}
+                        </mat-panel-title>
+                        <mat-panel-title>
+                            {{item.email}}
+                        </mat-panel-title>
+                        <mat-panel-title>
+                            {{item.company.address.postalCode}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="form-container">
+                        <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+                            <div class="block1">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" class="form-control" title="First Name"
+                                        formControlName="firstName{{i}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" class="form-control" title="Last Name"
+                                        formControlName="lastName{{i}}">
+                                </div>
+                            </div>
+                            <div class="block2">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" title="Email" formControlName="email{{i}}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="postalCode">Postal Name</label>
+                                    <input type="text" class="form-control" title="Postal"
+                                        formControlName="postalCode{{i}}">
+                                </div>
+                            </div>
+                            <div class="btn-section">
+                                <button mat-raised-button type="submit" (click)="saveData(i)">
+                                    <mat-spinner *ngIf="showLoader"></mat-spinner>
+                                    <span class="btn-text" *ngIf="!showLoader">Save</span>
+                                </button>
+                                <button mat-raised-button type="button">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-card-content>
+    </mat-card>
+</div>
