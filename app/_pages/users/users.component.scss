@@ -1,0 +1,58 @@
+$gray-border: 1px solid lightgray;
+.container {
+  margin: 3rem 20rem;
+  border: $gray-border;
+  &_card {
+    .mat-mdc-card-header {
+      border-bottom: $gray-border;
+    }
+  }
+}
+
+.mat-expansion-panel-content {
+  margin: 20px;
+  border: 1px solid lightgray;
+  padding: 20px;
+}
+form {
+  label {
+    display: inline-flex;
+    width: 20%;
+  }
+  input {
+    width: 70%;
+    margin-bottom: 20px;
+    height: 35px;
+    border-radius: 5px;
+  }
+  .block1,
+  .block2 {
+    display: inline-block;
+    width: 48%;
+    float: left;
+  }
+  .btn-section {
+    clear: both;
+    text-align: center;
+    button {
+        margin-right: 20px;
+    }
+  }
+}
+.mat-mdc-progress-spinner {
+    width: 30px !important;
+    height: 30px !important;
+    position: absolute  !important;
+    top: -15px !important;
+    right: -15px !important;
+}
+// .mat-content {
+//     margin-left: 20px !important;
+// }
+.mat-expansion-panel-header .mat-content {
+    margin-left: 30px !important;
+}
+.mat-expansion-panel-header {
+    flex-direction: row-reverse !important;
+    column-gap: 20px;
+}
